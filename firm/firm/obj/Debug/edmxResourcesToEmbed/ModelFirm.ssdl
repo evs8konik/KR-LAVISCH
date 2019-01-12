@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище firmModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Check_emp">
+    <Key>
+      <PropertyRef Name="ID_check" />
+    </Key>
+    <Property Name="ID_check" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_employee" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Code" Type="int" />
+    <Property Name="ID_expense" Type="int" />
+    <Property Name="Date_check" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="ID_department" />
+    </Key>
+    <Property Name="ID_department" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Department_name" Type="nvarchar(max)" />
+    <Property Name="Employee_count" Type="int" />
+    <Property Name="ID_result" Type="int" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID_employee" />
+    </Key>
+    <Property Name="ID_employee" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIO_employee" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ID_department" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Expense">
+    <Key>
+      <PropertyRef Name="ID_expense" />
+    </Key>
+    <Property Name="ID_expense" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Expense_name" Type="nvarchar(max)" />
+    <Property Name="Limit_sum" Type="money" />
+    <Property Name="Expense_describe" Type="nvarchar(max)" />
+    <Property Name="Balance" Type="money" />
+  </EntityType>
+  <EntityType Name="Result">
+    <Key>
+      <PropertyRef Name="ID_result" />
+    </Key>
+    <Property Name="ID_result" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Result_sum" Type="money" />
+    <Property Name="Month" Type="date" />
+    <Property Name="ID_expense" Type="int" />
+  </EntityType>
+  <Association Name="FK_Check_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Check_emp" Type="Self.Check_emp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID_employee" />
+      </Principal>
+      <Dependent Role="Check_emp">
+        <PropertyRef Name="ID_employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Check_Expense">
+    <End Role="Expense" Type="Self.Expense" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Check_emp" Type="Self.Check_emp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Expense">
+        <PropertyRef Name="ID_expense" />
+      </Principal>
+      <Dependent Role="Check_emp">
+        <PropertyRef Name="ID_expense" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="ID_department" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="ID_department" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Result_Expense">
+    <End Role="Expense" Type="Self.Expense" Multiplicity="0..1" />
+    <End Role="Result" Type="Self.Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Expense">
+        <PropertyRef Name="ID_expense" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="ID_expense" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище firmModelContainer">
+    <EntitySet Name="Check_emp" EntityType="Self.Check_emp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Expense" EntityType="Self.Expense" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Result" EntityType="Self.Result" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Check_Employee" Association="Self.FK_Check_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Check_emp" EntitySet="Check_emp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Check_Expense" Association="Self.FK_Check_Expense">
+      <End Role="Expense" EntitySet="Expense" />
+      <End Role="Check_emp" EntitySet="Check_emp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Department" Association="Self.FK_Employee_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Result_Expense" Association="Self.FK_Result_Expense">
+      <End Role="Expense" EntitySet="Expense" />
+      <End Role="Result" EntitySet="Result" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище firmModelContainer" CdmEntityContainer="firmEntities">
+    <EntitySetMapping Name="Check_emp_ET">
+      <EntityTypeMapping TypeName="firmModel.Check_emp">
+        <MappingFragment StoreEntitySet="Check_emp">
+          <ScalarProperty Name="ID_check" ColumnName="ID_check" />
+          <ScalarProperty Name="ID_employee" ColumnName="ID_employee" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ID_expense" ColumnName="ID_expense" />
+          <ScalarProperty Name="Date_check" ColumnName="Date_check" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Department_ET">
+      <EntityTypeMapping TypeName="firmModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="ID_department" ColumnName="ID_department" />
+          <ScalarProperty Name="Department_name" ColumnName="Department_name" />
+          <ScalarProperty Name="Employee_count" ColumnName="Employee_count" />
+          <ScalarProperty Name="ID_result" ColumnName="ID_result" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_ET">
+      <EntityTypeMapping TypeName="firmModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="ID_employee" ColumnName="ID_employee" />
+          <ScalarProperty Name="FIO_employee" ColumnName="FIO_employee" />
+          <ScalarProperty Name="ID_department" ColumnName="ID_department" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Expense_ET">
+      <EntityTypeMapping TypeName="firmModel.Expense">
+        <MappingFragment StoreEntitySet="Expense">
+          <ScalarProperty Name="ID_expense" ColumnName="ID_expense" />
+          <ScalarProperty Name="Expense_name" ColumnName="Expense_name" />
+          <ScalarProperty Name="Limit_sum" ColumnName="Limit_sum" />
+          <ScalarProperty Name="Expense_describe" ColumnName="Expense_describe" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Result_ET">
+      <EntityTypeMapping TypeName="firmModel.Result">
+        <MappingFragment StoreEntitySet="Result">
+          <ScalarProperty Name="ID_result" ColumnName="ID_result" />
+          <ScalarProperty Name="Result_sum" ColumnName="Result_sum" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="ID_expense" ColumnName="ID_expense" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

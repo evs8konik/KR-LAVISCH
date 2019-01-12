@@ -1,0 +1,30 @@
+E:\курсовой БД\firm\firm\firm\bin\Debug\firm.exe.config
+E:\курсовой БД\firm\firm\firm\bin\Debug\firm.exe
+E:\курсовой БД\firm\firm\firm\bin\Debug\firm.pdb
+E:\курсовой БД\firm\firm\firm\bin\Debug\EntityFramework.dll
+E:\курсовой БД\firm\firm\firm\bin\Debug\EntityFramework.SqlServer.dll
+E:\курсовой БД\firm\firm\firm\bin\Debug\EntityFramework.xml
+E:\курсовой БД\firm\firm\firm\bin\Debug\EntityFramework.SqlServer.xml
+E:\курсовой БД\firm\firm\firm\bin\Debug\ru\EntityFramework.resources.dll
+E:\курсовой БД\firm\firm\firm\obj\Debug\firm.csprojResolveAssemblyReference.cache
+E:\курсовой БД\firm\firm\firm\obj\Debug\firm.Form1.resources
+E:\курсовой БД\firm\firm\firm\obj\Debug\firm.Properties.Resources.resources
+E:\курсовой БД\firm\firm\firm\obj\Debug\firm.csproj.GenerateResource.Cache
+E:\курсовой БД\firm\firm\firm\obj\Debug\firm.csproj.CoreCompileInputs.cache
+E:\курсовой БД\firm\firm\firm\obj\Debug\firm.exe
+E:\курсовой БД\firm\firm\firm\obj\Debug\firm.pdb
+D:\БГУИР\3-ий курс\1-ый семестр\СиБД\Готовый\kursovoy_BD\курсовой БД\firm\firm\firm\obj\Debug\firm.exe
+D:\БГУИР\3-ий курс\1-ый семестр\СиБД\Готовый\kursovoy_BD\курсовой БД\firm\firm\firm\obj\Debug\firm.pdb
+D:\БГУИР\3-ий курс\1-ый семестр\СиБД\Готовый\kursovoy_BD\курсовой БД\firm\firm\firm\bin\Debug\firm.exe.config
+D:\БГУИР\3-ий курс\1-ый семестр\СиБД\Готовый\kursovoy_BD\курсовой БД\firm\firm\firm\bin\Debug\firm.exe
+D:\БГУИР\3-ий курс\1-ый семестр\СиБД\Готовый\kursovoy_BD\курсовой БД\firm\firm\firm\bin\Debug\firm.pdb
+D:\БГУИР\3-ий курс\1-ый семестр\СиБД\Готовый\kursovoy_BD\курсовой БД\firm\firm\firm\bin\Debug\EntityFramework.dll
+D:\БГУИР\3-ий курс\1-ый семестр\СиБД\Готовый\kursovoy_BD\курсовой БД\firm\firm\firm\bin\Debug\EntityFramework.SqlServer.dll
+D:\БГУИР\3-ий курс\1-ый семестр\СиБД\Готовый\kursovoy_BD\курсовой БД\firm\firm\firm\bin\Debug\EntityFramework.xml
+D:\БГУИР\3-ий курс\1-ый семестр\СиБД\Готовый\kursovoy_BD\курсовой БД\firm\firm\firm\bin\Debug\EntityFramework.SqlServer.xml
+D:\БГУИР\3-ий курс\1-ый семестр\СиБД\Готовый\kursovoy_BD\курсовой БД\firm\firm\firm\bin\Debug\ru\EntityFramework.resources.dll
+D:\БГУИР\3-ий курс\1-ый семестр\СиБД\Готовый\kursovoy_BD\курсовой БД\firm\firm\firm\obj\Debug\firm.csprojResolveAssemblyReference.cache
+D:\БГУИР\3-ий курс\1-ый семестр\СиБД\Готовый\kursovoy_BD\курсовой БД\firm\firm\firm\obj\Debug\firm.Form1.resources
+D:\БГУИР\3-ий курс\1-ый семестр\СиБД\Готовый\kursovoy_BD\курсовой БД\firm\firm\firm\obj\Debug\firm.Properties.Resources.resources
+D:\БГУИР\3-ий курс\1-ый семестр\СиБД\Готовый\kursovoy_BD\курсовой БД\firm\firm\firm\obj\Debug\firm.csproj.GenerateResource.Cache
+D:\БГУИР\3-ий курс\1-ый семестр\СиБД\Готовый\kursovoy_BD\курсовой БД\firm\firm\firm\obj\Debug\firm.csproj.CoreCompileInputs.cache

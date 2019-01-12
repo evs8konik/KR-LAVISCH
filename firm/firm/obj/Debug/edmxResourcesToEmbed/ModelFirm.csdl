@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="firmModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Check_emp">
+    <Key>
+      <PropertyRef Name="ID_check" />
+    </Key>
+    <Property Name="ID_check" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_employee" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Code" Type="Int32" />
+    <Property Name="ID_expense" Type="Int32" />
+    <Property Name="Date_check" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Check_Employee" FromRole="Check_emp" ToRole="Employee" />
+    <NavigationProperty Name="Expense" Relationship="Self.FK_Check_Expense" FromRole="Check_emp" ToRole="Expense" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="ID_department" />
+    </Key>
+    <Property Name="ID_department" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Department_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_count" Type="Int32" />
+    <Property Name="ID_result" Type="Int32" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Department" FromRole="Department" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID_employee" />
+    </Key>
+    <Property Name="ID_employee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIO_employee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID_department" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Check_emp" Relationship="Self.FK_Check_Employee" FromRole="Employee" ToRole="Check_emp" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_Employee_Department" FromRole="Employee" ToRole="Department" />
+  </EntityType>
+  <EntityType Name="Expense">
+    <Key>
+      <PropertyRef Name="ID_expense" />
+    </Key>
+    <Property Name="ID_expense" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Expense_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Limit_sum" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Expense_describe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Balance" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Check_emp" Relationship="Self.FK_Check_Expense" FromRole="Expense" ToRole="Check_emp" />
+    <NavigationProperty Name="Result" Relationship="Self.FK_Result_Expense" FromRole="Expense" ToRole="Result" />
+  </EntityType>
+  <EntityType Name="Result">
+    <Key>
+      <PropertyRef Name="ID_result" />
+    </Key>
+    <Property Name="ID_result" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Result_sum" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Month" Type="DateTime" Precision="0" />
+    <Property Name="ID_expense" Type="Int32" />
+    <NavigationProperty Name="Expense" Relationship="Self.FK_Result_Expense" FromRole="Result" ToRole="Expense" />
+  </EntityType>
+  <Association Name="FK_Check_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Check_emp" Type="Self.Check_emp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID_employee" />
+      </Principal>
+      <Dependent Role="Check_emp">
+        <PropertyRef Name="ID_employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Check_Expense">
+    <End Role="Expense" Type="Self.Expense" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Check_emp" Type="Self.Check_emp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Expense">
+        <PropertyRef Name="ID_expense" />
+      </Principal>
+      <Dependent Role="Check_emp">
+        <PropertyRef Name="ID_expense" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="ID_department" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="ID_department" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Result_Expense">
+    <End Role="Expense" Type="Self.Expense" Multiplicity="0..1" />
+    <End Role="Result" Type="Self.Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Expense">
+        <PropertyRef Name="ID_expense" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="ID_expense" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="firmEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Check_emp_ET" EntityType="Self.Check_emp" />
+    <EntitySet Name="Department_ET" EntityType="Self.Department" />
+    <EntitySet Name="Employee_ET" EntityType="Self.Employee" />
+    <EntitySet Name="Expense_ET" EntityType="Self.Expense" />
+    <EntitySet Name="Result_ET" EntityType="Self.Result" />
+    <AssociationSet Name="FK_Check_Employee" Association="Self.FK_Check_Employee">
+      <End Role="Employee" EntitySet="Employee_ET" />
+      <End Role="Check_emp" EntitySet="Check_emp_ET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Check_Expense" Association="Self.FK_Check_Expense">
+      <End Role="Expense" EntitySet="Expense_ET" />
+      <End Role="Check_emp" EntitySet="Check_emp_ET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Department" Association="Self.FK_Employee_Department">
+      <End Role="Department" EntitySet="Department_ET" />
+      <End Role="Employee" EntitySet="Employee_ET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Result_Expense" Association="Self.FK_Result_Expense">
+      <End Role="Expense" EntitySet="Expense_ET" />
+      <End Role="Result" EntitySet="Result_ET" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
